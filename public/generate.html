@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="上传一张照片，跟踪 Aholo Lux3D 的 3D 模型生成进度。">
+  <title>上传生成 · Lux3D 展厅</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./assets/model-viewer.min.js"></script>
+  <script type="module" src="./generate.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">◇</span>
+        <span>Lux3D 展厅</span>
+      </a>
+      <nav class="header-nav" aria-label="页面导航">
+        <a class="button button-outline nav-button" href="./index.html"><span aria-hidden="true">←</span> 返回展厅</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="page-intro" aria-labelledby="page-title">
+      <h1 id="page-title">上传生成</h1>
+      <p>预计 5 到 8 分钟。每次提交会创建一个 Aholo 计费任务。</p>
+    </section>
+
+    <div class="generate-grid">
+      <section class="panel upload-panel" aria-labelledby="upload-title">
+        <h2 id="upload-title">输入照片</h2>
+        <form id="generate-form">
+          <input class="file-input" type="file" id="image" name="image" accept="image/jpeg,image/png,.jpg,.jpeg,.png" aria-describedby="image-note">
+          <label class="file-picker" for="image">
+            <img id="upload-photo" alt="选中的输入照片" hidden>
+            <span id="upload-placeholder" class="file-placeholder">
+              <span class="upload-icon" aria-hidden="true">＋</span>
+              <span>选择照片</span>
+              <small id="image-note">JPG 或 PNG，最大 5 MB</small>
+            </span>
+          </label>
+          <p id="image-name" class="image-name" hidden></p>
+          <label class="field-label" for="access-code">访问口令</label>
+          <input class="text-input" type="password" id="access-code" autocomplete="current-password" placeholder="输入后端设置的访问口令" required>
+          <div class="form-actions">
+            <button class="button button-primary" id="submit-task" type="submit">生成 3D 模型</button>
+            <button class="button button-outline" id="resume-task" type="button" hidden>继续查询</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel result-panel" aria-labelledby="result-title">
+        <div class="result-header">
+          <div>
+            <h2 id="result-title">生成进度</h2>
+            <p id="task-reference" class="task-reference" hidden></p>
+          </div>
+          <span class="wait-time">已等待 <time id="elapsed-time" datetime="PT0S">00:00</time></span>
+        </div>
+        <p id="task-status" class="task-status" role="status" data-tone="neutral">等待提交</p>
+        <div id="task-error" class="task-error" role="alert" hidden>
+          <code id="task-error-code"></code>
+          <p id="task-error-message"></p>
+        </div>
+        <div id="generate-preview"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell">模型由 Aholo Lux3D 生成</div></footer>
+</body>
+</html>

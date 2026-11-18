@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cup",
+    "name": "青绿色陶瓷杯",
+    "category": "器物",
+    "glb": "assets/models/cup.glb",
+    "input": "assets/inputs/cup.png",
+    "faces": 89866,
+    "note": "使用 G1 从单张照片生成。旋转模型可查看杯口内壁和把手。",
+    "source": "Aholo API"
+  },
+  {
+    "id": "chair",
+    "name": "木椅",
+    "category": "家具",
+    "glb": "assets/models/yizi.glb",
+    "input": "assets/inputs/yizi.jpg",
+    "faces": 298566,
+    "note": "可从侧面查看椅背、椅脚和座面。",
+    "source": "Lux3D 网页版"
+  },
+  {
+    "id": "vase",
+    "name": "盆栽绿植",
+    "category": "器物",
+    "glb": "assets/models/huaping.glb",
+    "input": "assets/inputs/huaping.jpg",
+    "faces": 152064,
+    "note": "使用 G1 从盆栽照片生成，可旋转查看叶片和花盆。",
+    "source": "Aholo API"
+  },
+  {
+    "id": "lamp",
+    "name": "台灯",
+    "category": "照明",
+    "glb": "assets/models/lamp-8312455.glb",
+    "input": "assets/inputs/lamp.jpg",
+    "faces": 97144,
+    "note": "使用 G1 从台灯照片生成，可查看灯罩和底座。",
+    "source": "Aholo API"
+  },
+  {
+    "id": "table",
+    "name": "木桌",
+    "category": "家具",
+    "glb": "assets/models/table.glb",
+    "input": "assets/inputs/table.jpg",
+    "faces": 72796,
+    "note": "使用 G1 从木桌照片生成，可从不同角度查看桌面和桌腿。",
+    "source": "Aholo API"
+  }
+]

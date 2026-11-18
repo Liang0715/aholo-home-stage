@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="对比输入照片与 Aholo Lux3D 生成的 3D 模型。">
+  <title>空间智能展厅</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./assets/model-viewer.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">◇</span>
+        <span>Lux3D 展厅</span>
+      </a>
+      <nav class="header-nav" aria-label="页面导航">
+        <a class="button button-outline nav-button" href="./layout.html">3D 展台</a>
+        <span class="local-note">需本地运行后端</span>
+        <a class="button button-outline nav-button" href="./generate.html">上传生成 <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="page-intro" aria-labelledby="page-title">
+      <h1 id="page-title">空间智能展厅</h1>
+      <p>选一件展品，对比输入照片与生成的 3D 模型。</p>
+    </section>
+
+    <section class="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <h2 id="catalog-title">模型库</h2>
+        <div class="filters" id="categories" role="group" aria-label="按类别筛选"></div>
+      </div>
+      <p id="catalog-status" class="catalog-status" role="status">正在读取模型清单…</p>
+      <div class="model-grid" id="model-grid"></div>
+    </section>
+
+    <section class="comparison" id="comparison" aria-labelledby="comparison-title" hidden>
+      <div class="section-heading comparison-heading">
+        <div>
+          <h2 id="comparison-title" tabindex="-1"></h2>
+          <p id="comparison-note"></p>
+        </div>
+        <span id="comparison-meta" class="model-meta"></span>
+      </div>
+      <div class="comparison-grid">
+        <figure class="panel compare-panel">
+          <figcaption class="panel-label">输入照片</figcaption>
+          <div class="visual-frame input-frame" id="input-frame"></div>
+        </figure>
+        <section class="panel compare-panel" aria-labelledby="model-title">
+          <h3 id="model-title" class="panel-label">3D 模型</h3>
+          <div id="gallery-preview"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell">模型由 Aholo Lux3D 生成</div></footer>
+</body>
+</html>

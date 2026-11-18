@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+/node_modules/
+/public/generated/
+/logs/
+/lollipop/
+
+# 本机保留的重复模型
+/public/assets/models/beizi.glb
+/public/assets/models/lamp.glb

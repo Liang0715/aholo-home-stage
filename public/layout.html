@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="摆放 Lux3D 生成的模型，检查边界和重叠，再分享布局。">
+  <title>3D 展台 · Lux3D 展厅</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./assets/layout.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/three/build/three.module.min.js",
+        "three/addons/": "./assets/three/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./assets/layout.js"></script>
+</head>
+<body class="layout-page">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">◇</span>
+        <span>Lux3D 展厅</span>
+      </a>
+      <nav class="header-nav" aria-label="页面导航">
+        <a class="button button-outline nav-button" href="./index.html"><span aria-hidden="true">←</span> 返回展厅</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="layout-intro page-intro" aria-labelledby="layout-title">
+      <h1 id="layout-title">3D 展台</h1>
+      <p>把照片生成的模型摆到同一块展台上，再分享你布置的空间。</p>
+    </section>
+
+    <div class="layout-workspace">
+      <section class="panel layout-catalog" aria-labelledby="layout-catalog-title">
+        <div class="layout-panel-heading">
+          <h2 id="layout-catalog-title">添加展品</h2>
+          <span class="layout-count" id="layout-count" aria-label="已添加数量">0 / 6</span>
+        </div>
+        <p id="layout-catalog-status" class="layout-note" role="status">正在读取展品…</p>
+        <div id="layout-catalog"></div>
+      </section>
+
+      <section class="panel layout-placed" aria-labelledby="layout-placed-title">
+        <h2 id="layout-placed-title">已摆放</h2>
+        <p class="layout-note layout-dimensions-note">尺寸取自模型数据（模型单位）</p>
+        <p id="layout-empty-list" class="layout-note">添加展品后，可在这里选中并调整它。</p>
+        <ul id="layout-items" class="layout-objects"></ul>
+        <div id="layout-selection" class="layout-selection" hidden>
+          <div class="layout-field-heading">
+            <label for="layout-rotation">旋转</label>
+            <output for="layout-rotation" id="layout-angle">0°</output>
+          </div>
+          <input id="layout-rotation" type="range" min="0" max="359" step="1" value="0">
+          <div class="layout-field-heading">
+            <label for="layout-height">离地高度</label>
+            <output for="layout-height" id="layout-height-value">0</output>
+          </div>
+          <input id="layout-height" type="range" min="0" max="4" step="0.001" value="0">
+          <div class="layout-item-actions">
+            <button id="layout-place-table" class="button button-outline" type="button" hidden>放到桌面</button>
+            <button id="layout-remove" class="button button-outline" type="button">删除选中物件</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel layout-stage" aria-labelledby="layout-stage-title">
+        <div class="layout-panel-heading layout-stage-heading">
+          <h2 id="layout-stage-title">摆放场景</h2>
+          <button class="button button-primary" id="layout-share" type="button" disabled>复制分享链接</button>
+        </div>
+        <div class="layout-size-control">
+          <label for="layout-stage-size">展台大小</label>
+          <input id="layout-stage-size" type="range" min="1" max="6" step="0.25" value="3">
+          <output for="layout-stage-size" id="layout-size-value">3 × 3（模型单位）</output>
+        </div>
+        <div id="layout-viewport" class="layout-viewport">
+          <canvas id="layout-canvas" aria-label="展台三维预览"></canvas>
+          <p id="layout-viewport-message" class="layout-viewport-message" role="status">从展品列表添加一个模型。</p>
+        </div>
+        <p class="layout-note layout-gesture-hint">拖动物件可以移动。拖动空白处转动镜头，滚轮或双指缩放。</p>
+        <ul id="layout-warnings" class="layout-warnings" aria-live="polite" hidden></ul>
+        <p id="layout-feedback" class="layout-feedback" role="status" hidden></p>
+        <input id="layout-share-url" class="text-input layout-share-url" type="url" aria-label="可手动复制的布局链接" readonly hidden>
+        <noscript><p class="layout-note">请在浏览器中启用 JavaScript 以使用 3D 展台。</p></noscript>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell">模型由 Aholo Lux3D 生成</div></footer>
+</body>
+</html>
